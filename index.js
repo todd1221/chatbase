@@ -2,17 +2,12 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-app.set('views', __dirname+'/views');
-app.set('view engine', 'jade');
+const cors = require('cors')
+app.use(cors())
 
-app.get('/', function(req, res){
-  if (req.headers['sec-fetch-dest'] == 'iframe') {
-    res.render('home', {
-      id: req.query.chatbotId
-    });
-  } else {
-    res.send('None')
-  }
+app.get("/", async function (req, res) {
+  var url = 'https://www.chatbase.co/chatbot-iframe/o6U4lcYPq7OBFWrz-T3Nx';
+  res.redirect(url)
 });
 
 app.listen(port, () => {
