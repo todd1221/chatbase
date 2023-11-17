@@ -11,12 +11,12 @@ app.get("/", async function (req, res) {
   console.log(encrypted)
   const decrypt = CryptoJS.AES.decrypt(encrypted, "jangle-fortuitas").toString(CryptoJS.enc.Utf8);
   console.log(decrypt)
-  res.send('Hello')
-  // if (req.headers['sec-fetch-dest'] == 'iframe') {
-  //   res.redirect(`https://www.chatbase.co/chatbot-iframe/${decrypt}`)
-  // } else {
-  //   res.send('None')
-  // }  
+  console.log(req.headers['sec-fetch-dest'])
+  if (req.headers['sec-fetch-dest'] == 'iframe') {
+    res.redirect(`https://www.chatbase.co/chatbot-iframe/${decrypt}`)
+  } else {
+    res.send('None')
+  }  
 });
 
 app.listen(port, () => {
