@@ -9,7 +9,7 @@ app.use(cors())
 app.get("/", async function (req, res) {
   // const encrypted = req._parsedUrl.query
   // const decrypt = CryptoJS.AES.decrypt(encrypted, "jangle-fortuitas").toString(CryptoJS.enc.Utf8);
-
+  console.log(req)
   res.send('Hello')
   // if (req.headers['sec-fetch-dest'] == 'iframe') {
   //   res.redirect(`https://www.chatbase.co/chatbot-iframe/${decrypt}`)
